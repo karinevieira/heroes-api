@@ -60,7 +60,7 @@ For all requests, use an Authorization header, of size >= 10 characters, so that
 #### Endpoints
 
 <table>
-  <thead>
+  <thead style="font-weight: bold; text-align:center;">
     <tr>
       <td>Endpoints</td>
       <td>Usage</td>
