@@ -12,6 +12,10 @@ RSpec.describe '/api/heroes', type: :request do
     { name: nil, token: token }
   end
 
+  let(:invalid_headers) do
+    { Authorization: '123456789' }
+  end
+
   let(:valid_headers) do
     { Authorization: token }
   end
@@ -27,8 +31,14 @@ RSpec.describe '/api/heroes', type: :request do
 
     context 'without headers' do
       it 'renders a JSON response with an unauthorized status' do
-        Hero.create! valid_attributes
         get api_heroes_url, as: :json
+        expect(response).to have_http_status(:unauthorized)
+      end
+    end
+
+    context 'with invalid headers' do
+      it 'renders a JSON response with an unauthorized status' do
+        get api_heroes_url, headers: invalid_headers, as: :json
         expect(response).to have_http_status(:unauthorized)
       end
     end
