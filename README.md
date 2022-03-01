@@ -1,6 +1,6 @@
 # Heroes API
 
-Building a API using Ruby on Rails 6.
+Building an API using Ruby on Rails 6.
 
 <table>
   <tr>
